@@ -84,28 +84,29 @@ public class TableroSimpson3 {
             //S-->Abajo
             //D-->Derecha
             //W-->Arriba
-        Scanner lector= new Scanner(System.in);
+        Scanner lector= new Scanner(System.in); ////se crea un objeto de la clase Scanner llamado lector en este caso, permite leer la entrada del usuario desde la consola.
         //JUGAR
         int vidas=10;
         do {
             System.out.println("Dime el desplazamiento que quieres realizar");
             System.out.println("A-->Izquierda, S--> Abajo, D--> Derecha, W--> Arriba");
-            String desplazamiento=lector.nextLine();
+            String desplazamiento=lector.nextLine(); //para leer lo que el usuario escribe. El next.line captura lo que el usuario escribe, en este caso el caracter de movimiento, y lo almacenará en desplazamiento
             System.out.println("Desplazamiento=" + desplazamiento);
-            switch (desplazamiento){
+            //El valor que contiene desplazamiento es evaluado en un switch para determinar qué acción tomar. Dependiendo de si el usuario escribió "A", "S", "D", o "W", el programa decide la dirección en que se moverá Bart.
+            switch (desplazamiento){ //Realizará el desplazamiento correspondiente en función de la letra que le digamos.
                 case "A": //Izquierda
-                    if ((columnaBart-1) >=0 ){
+                    if ((columnaBart-1) >=0 ){ //Para que no se salga del tablero debe estar en un posición igual o mayor a 0, si es -1 por ejemplo se sale y nos iríamos al else
                         columnaBart=columnaBart-1; //Ya lo tenemos en la casilla 0,-1. Se sale del array
-                        switch (tablero[filaBart][columnaBart]){
+                        switch (tablero[filaBart][columnaBart]){ //Según la casilla con la que se encuentre:
                             case 'H':
                                 vidas= vidas-1;
-                                tablero[filaBart][columnaBart]='B';
-                                tablero[filaBart][columnaBart+1]='L';
+                                tablero[filaBart][columnaBart]='B'; //Se rellena la casilla a la que se haya movido con un B
+                                tablero[filaBart][columnaBart+1]='L'; //Se rellena la casilla de la que venga con un L
                                 System.out.println("Has perdido una vida. Te quedan "+vidas+" vidas");
                                 break;
                             case 'M':
                                 System.out.println("El muro no te deja desplazarte a esta casilla.");
-                                columnaBart=columnaBart + 1;
+                                columnaBart=columnaBart + 1; //Si se choca con un muro no puede avanzar así que avanza la casilla pero automáticamente la retrocede, se queda donde estaba
                                 break;
                             case 'L':
                                 tablero [filaBart][columnaBart] = 'B';
@@ -209,7 +210,7 @@ public class TableroSimpson3 {
                         System.out.println("Desplazamiento prohibido. Límite de tablero.");
                     }
                     break;
-                default:
+                default: //Si no se ingresa uno de los casos anteriores, por defecto el programa dejará de ejecutarse
                     break;
             }
             imprimirTablero();
