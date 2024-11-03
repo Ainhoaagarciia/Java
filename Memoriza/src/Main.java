@@ -15,15 +15,15 @@ public class Main {
         }
     }
     static void distribucionAleatoriaParejas(){
-        for (int i = 0; i <8 ; i++) {
-            for (int j = 0; j <2 ; j++) {
+        for (int i = 0; i <9 ; i++) { // Se ejecuta 8 veces, una por cada nº de la pareja (del 1 al 8). Empieza con el 1
+            for (int j = 0; j <2 ; j++) {  // Se ejecuta 2 veces para colocar cada pareja en dos posiciones aleatorias. Repite el 1 para que tenga su pareja
                 int FilaRandom;
                 int ColumnaRandom;
                 do {
-                    FilaRandom = aleatorio.nextInt(MAX_FILA_TABLERO);
+                    FilaRandom = aleatorio.nextInt(MAX_FILA_TABLERO); //Genera fila aleatoria
                     ColumnaRandom = aleatorio.nextInt(MAX_FILA_TABLERO);
-                }while(tablero[FilaRandom][ColumnaRandom]!=0);
-                tablero[FilaRandom][ColumnaRandom] =(i+1);
+                }while(tablero[FilaRandom][ColumnaRandom]!=0); // Repetir hasta encontrar una posición vacía
+                tablero[FilaRandom][ColumnaRandom] =i; 
             }
         }
     }
@@ -57,8 +57,8 @@ public class Main {
 
             if (tablero[Fila1][Columna1] == tablero[Fila2][Columna2]) {
                 System.out.println("HAS ACERTADO!!");
-                tablero[Fila1][Columna1] = 0;
-                tablero[Fila2][Columna2] = 0;
+                tablero[Fila1][Columna1] = 0; // Los valores en esas posiciones se ponen en 0, indicando que la pareja fue encontrada
+                tablero[Fila2][Columna2] = 0; 
             } else{
                 System.out.println("HAS FALLADO!!");
                 intentos--;
