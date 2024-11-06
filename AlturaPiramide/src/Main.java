@@ -8,12 +8,12 @@ public class Main {
         int bloquesUser = leer.nextInt(); //Inserta los bloques a utilizar, bloques disponibles
         int nivel = 1; //Nivel actual
         int bloquesAcumulados = 1; //Total de bloques usados hasta el momento, comenzando en 1, ya que el primer nivel usa 1 bloque.
-        int dimensionBloques = 1; // Controla el tamaño del próximo nivel. Comienza en 1, que es el tamaño del primer nivel.
+        int multBloques = 1; // Controla el tamaño del próximo nivel. Comienza en 1, que es el tamaño del primer nivel.
 
         while (bloquesUser > bloquesAcumulados) { //se ejecuta mientras bloquesAcumulados sea menor que los bloques disponibles.
             nivel = nivel + 1; //Sube de nivel
-            dimensionBloques= dimensionBloques + 2; //Aumenta el lado del cuadrado de bloques para el siguiente nivel, añadiendo 2 filas y 2 columnas
-            bloquesAcumulados = bloquesAcumulados + (dimensionBloques*dimensionBloques); //Fila*columna (lo anterior)+1 (el de arriba)
+            multBloques= multBloques + 2; //Aumenta el lado del cuadrado de bloques para el siguiente nivel, añadiendo 2 unidades.
+            bloquesAcumulados = bloquesAcumulados + (multBloques*multBloques);
             /* incrementa bloquesAcumulados sumando los bloques necesarios para el siguiente nivel, que es el cuadrado del nuevo multBloques.
             Ej) Si el usuario ingresa bloquesUser = 9:
             Nivel 1: se requiere 1 × 1 = 1 bloque. Total: 1 bloque.
