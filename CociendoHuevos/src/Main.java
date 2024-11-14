@@ -16,7 +16,7 @@ public class Main {
             if ((1<huevos&& huevos<=10000) && (1<capacidadHuevosOlla  && capacidadHuevosOlla<=1000)){
                 int numCiclos= (huevos+capacidadHuevosOlla-1)/capacidadHuevosOlla;
                 int minutosCoccion= numCiclos*10;
-                System.out.println(minutosCoccion);
+                System.out.println("Los minutos de coccion son: "+ minutosCoccion);
 
             }else if (huevos<=0 || capacidadHuevosOlla<=0){
                 System.out.println("Valor no válido");
